@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Testing Test</title>
+        <title>Something Else</title>
+        <meta name="Nathan Law IMD3901 A2" content="idk">
+
+        <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     </head>
     <body>
-        Something something
+        <a-scene background="color: black">
+            
+            <a-sky src="Assets/Textures/sky.jpg"></a-sky>
+            <a-entity id="Ground" 
+                position="0 0 0" 
+                rotation="-90 0 0" 
+                scale="20 20 0" 
+                geometry="primitive:plane; width: 1; height: 1;" 
+                material="color:rgb(150, 120, 245)">
+            </a-entity>
 
+
+        </a-scene>
     </body>
 
 </html>
