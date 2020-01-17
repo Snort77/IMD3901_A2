@@ -5,20 +5,57 @@
         <meta name="Nathan Law IMD3901 A2" content="idk">
 
         <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+        <script src="js/create-ball.js"></script>
+        <script src="js/throw-ball.js"></script>
+        <script src="js/gumby-run.js"></script>
     </head>
     <body>
         <a-scene background="color: black">
             
+            <!--<a-entity gumby-run=""></a-entity>-->
+
+            <a-assets>
+                <a-asset-item id="Gumby-obj" src="Assets/Models/Gumby.obj"></a-asset-item>
+                <a-asset-item id="Gumby-mtl" src="Assets/Textures/Gumby.mtl"></a-asset-item>
+            </a-assets>
+
+            <a-entity camera look-controls wasd-controls position="0 1 0">
+                <a-entity    cursor="rayOrigin:mouse;" 
+                            raycaster="far:20; interval:100; objects:.clickable">
+                </a-entity>
+            </a-entity>
+
+            <!--The skyspherebox thing-->
             <a-sky src="Assets/Textures/sky.jpg"></a-sky>
+
+            <!--The Ground-->
             <a-entity id="Ground" 
-                position="0 0 0" 
+                position="20 0 0" 
                 rotation="-90 0 0" 
-                scale="20 20 0" 
+                scale="50 20 0" 
                 geometry="primitive:plane; width: 1; height: 1;" 
                 material="color:rgb(150, 120, 245)">
             </a-entity>
 
+            Gumby
+            <a-entity id="Gumby" obj-model="obj: #Gumby-obj;"
+                material="src:Assets/Textures/GumbyTexture.png;"
+                position="45 0 0">   
+            </a-entity>
 
+            <a-entity id="button"
+                class="clickable"
+                geometry="primitive: cylinder; height: 0.5; radius: 0.5" 
+                position="0 0 -3" 
+                material="color:rgb(100, 100, 255);"
+                create-ball="">
+            </a-entity>
+
+            <a-entity id="ball"
+                geometry="primitive: sphere; segmentsWidth: 8; segmentsHeight: 8"
+                material="color:rgb(100, 255, 100);">
+            </a-entity>
+            
         </a-scene>
     </body>
 
