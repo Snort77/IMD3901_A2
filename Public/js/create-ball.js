@@ -22,7 +22,7 @@ AFRAME.registerComponent( 'create-ball', {
         ballElem.setAttribute('class', 'clickable');
         ballElem.setAttribute('geometry', 'primitive: sphere; segmentsWidth: 8; segmentsHeight: 8');
         ballElem.setAttribute('material', 'color:rgb(100, 255, 100)')
-        ballElem.setAttribute('position', { x: (Math.random() * 6.0) - 3.0, y:0, z: -4.0 -(Math.random() * 3.0)});
+        ballElem.setAttribute('position', { x: (Math.random() * 6.0), y:0, z: 0 -(Math.random() * 3.0)});
 
         ballElem.setAttribute('throw-ball', '');
 

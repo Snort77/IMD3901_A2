@@ -40,7 +40,16 @@
             Gumby
             <a-entity id="Gumby" obj-model="obj: #Gumby-obj;"
                 material="src:Assets/Textures/GumbyTexture.png;"
-                position="45 0 0">   
+                position="45 0 0" 
+                animation="property: position; to: 5 0 0; dur: 15500; easing: linear">
+            </a-entity>  
+
+            <a-entity id="gumbyHitbox"
+                geometry="primitive: cylinder; height: 0.5; radius: 0.5" 
+                position="45 0 0" 
+                material="color:rgb(50, 255, 50);"
+                animation="property: position; to: 5 0 0; dur: 15500; easing: linear"
+                gumby-run="">
             </a-entity>
 
             <a-entity id="button"
@@ -50,11 +59,7 @@
                 material="color:rgb(100, 100, 255);"
                 create-ball="">
             </a-entity>
-
-            <a-entity id="ball"
-                geometry="primitive: sphere; segmentsWidth: 8; segmentsHeight: 8"
-                material="color:rgb(100, 255, 100);">
-            </a-entity>
+            
             
         </a-scene>
     </body>
