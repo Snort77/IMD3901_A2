@@ -5,64 +5,87 @@ AFRAME.registerComponent( 'gumby-run', {
 
         const Context_AF = this;
 
-        if(Context_AF.el.object3D.position = (5, 0, 0)){
-            Context_AF.gameOver();
-        }
+        //Variables are not transfering across yet
+        //Context_AF.health = 10;
+        let ghealth = 10;
+        let thrownballs = 0;
+        console.log('Health ', ghealth);
+        console.log('Health ', thrownballs);
 
-        Context_AF.el.addEventListener('click', function(event){
-            console.log('click');
+        //const ball = document.querySelector('#ball');
+        //ghealth = ball.components['destroy-ball'].currenthealth;
+
+
+        //if the animation is complete is means Gumby has reached you. this will start the game over function
+        Context_AF.el.addEventListener('animationcomplete', function(event){
             Context_AF.gameOver();
+            console.log('Health ', ghealth);
+            console.log('Health ', thrownballs);
         });
-        Context_AF.el.addEventListener('mouseenter', function(event){
-            Context_AF.el.object3D.scale.set(1.1, 1.1, 1.1);
-        });
-        Context_AF.el.addEventListener('mouseleave', function(event){
-            Context_AF.el.object3D.scale.set(1.0, 1.0, 1.0);
-        });
+        
+        //Context_AF.el.addEventListener(ghealth == 10); {
+        //    console.log('Health ', ghealth);
+        //}
+
+        //Context_AF.el.if (ghealth == 7); {
+        //    console.log('Health ', ghealth);
+        //}
+
+       // Context_AF.el.if (ghealth == 5); {
+           // console.log('Health ', ghealth);
+       // }
+
+      //  Context_AF.el.if (ghealth == 0); {
+      //      console.log('WINNER WINNER HAHAHAHHHAHAAH');
+      //      Context_AF.Win();
+      //  }
 
     },
-    gameOver : function(){
+
+    //create a box made of planes, one saying "game over"
+    gameOver : function(ghealth){
         const Context_AF = this;
 
-        let GOE1lem = document.createElement('a-plane');
-        GOE1lem.setAttribute('id', 'Green');
-        GOE1lem.setAttribute('Position', '0 2 -4');
-        GOE1lem.setAttribute('rotation', '0 0 0');
-        GOE1lem.setAttribute('width', '8');
-        GOE1lem.setAttribute('height', '4');
-        GOE1lem.setAttribute('color', '#7BC8A4');
+        let GO1Elem = document.createElement('a-plane');
+        GO1Elem.setAttribute('id', 'Wall1');
+        GO1Elem.setAttribute('Position', '0 2 -4');
+        GO1Elem.setAttribute('rotation', '0 0 0');
+        GO1Elem.setAttribute('width', '8');
+        GO1Elem.setAttribute('height', '4');
+        GO1Elem.setAttribute('color', '#7BC8A4');
 
-        let GOE2lem = document.createElement('a-plane');
-        GOE2lem.setAttribute('id', 'Green');
-        GOE2lem.setAttribute('Position', '0 2 4');
-        GOE2lem.setAttribute('rotation', '180 0 0');
-        GOE2lem.setAttribute('width', '8');
-        GOE2lem.setAttribute('height', '4');
-        GOE2lem.setAttribute('color', '#7BC8A4');
+        let GO2Elem = document.createElement('a-plane');
+        GO2Elem.setAttribute('id', 'Wall2');
+        GO2Elem.setAttribute('Position', '0 2 4');
+        GO2Elem.setAttribute('rotation', '180 0 0');
+        GO2Elem.setAttribute('width', '8');
+        GO2Elem.setAttribute('height', '4');
+        GO2Elem.setAttribute('color', '#7BC8A4');
 
-        let GOE3lem = document.createElement('a-plane');
-        GOE3lem.setAttribute('id', 'Green');
-        GOE3lem.setAttribute('Position', '-4 2 0');
-        GOE3lem.setAttribute('rotation', '0 90 0');
-        GOE3lem.setAttribute('width', '8');
-        GOE3lem.setAttribute('height', '4');
-        GOE3lem.setAttribute('color', '#7BC8A4');
+        let GO3Elem = document.createElement('a-plane');
+        GO3Elem.setAttribute('id', 'Wall3');
+        GO3Elem.setAttribute('Position', '-4 2 0');
+        GO3Elem.setAttribute('rotation', '0 90 0');
+        GO3Elem.setAttribute('width', '8');
+        GO3Elem.setAttribute('height', '4');
+        GO3Elem.setAttribute('color', '#7BC8A4');
 
-        let GOE4lem = document.createElement('a-plane');
-        GOE4lem.setAttribute('id', 'Green');
-        GOE4lem.setAttribute('Position', '3.5 2 0');
-        GOE4lem.setAttribute('rotation', '0 -90 0');
-        GOE4lem.setAttribute('width', '8');
-        GOE4lem.setAttribute('height', '4');
-        GOE4lem.setAttribute('color', '#7BC8A4');
+        let GO4Elem = document.createElement('a-plane');
+        GO4Elem.setAttribute('id', 'Wall4');
+        GO4Elem.setAttribute('Position', '3.5 2 0');
+        GO4Elem.setAttribute('rotation', '0 -90 0');
+        GO4Elem.setAttribute('width', '8');
+        GO4Elem.setAttribute('height', '4');
+        GO4Elem.setAttribute('color', '#7BC8A4');
+        GO4Elem.setAttribute('material', 'src:#gameOver_img')
 
         //add to scene
         let scene = document.querySelector('a-scene');
-        scene.appendChild(GOE1lem);
-        scene.appendChild(GOE2lem);
-        scene.appendChild(GOE3lem);
-        scene.appendChild(GOE4lem);
+        scene.appendChild(GO1Elem);
+        scene.appendChild(GO2Elem);
+        scene.appendChild(GO3Elem);
+        scene.appendChild(GO4Elem);
 
     }
-
+    
 });
