@@ -64,7 +64,7 @@ AFRAME.registerComponent( 'gumby-run', {
         GO4Elem.setAttribute('width', '8');
         GO4Elem.setAttribute('height', '4');
         GO4Elem.setAttribute('color', '#292929');
-        GO4Elem.setAttribute('material', 'src:#gameOver_img')
+        GO4Elem.setAttribute('material', 'src:#gameOver_img');
 
         //add to scene
         let scene = document.querySelector('a-scene');
@@ -107,6 +107,7 @@ AFRAME.registerComponent( 'gumby-run', {
         W3Elem.setAttribute('color', '#7BC8A4');
 
         let W4Elem = document.createElement('a-plane');
+        W4Elem.setAttribute('sound', 'src: #confetti; autoplay: true; volume: 0.5');
         W4Elem.setAttribute('id', 'Wall4');
         W4Elem.setAttribute('Position', '3.5 2 0');
         W4Elem.setAttribute('rotation', '0 -90 0');

@@ -3,7 +3,7 @@ AFRAME.registerComponent( 'create-ball', {
         console.log('init component' );
 
         const Context_AF = this;
-
+        
         //When the button is clicked the create ball function is called
         Context_AF.el.addEventListener('click', function(event){
             console.log('click');
